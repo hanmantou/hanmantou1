@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
         films: [
             // 请将这里的 embedSrc 替换为你真实的 Bilibili 视频嵌入链接 (例如：https://player.bilibili.com/player.html?bvid=BV1xxxxxxx&autoplay=0)
             { id: 1, type: 'bilibili', embedSrc: 'https://www.bilibili.com/video/BV1gugczaE2F?vd_source=e4d77113e8a14820331cd07dfbaf0665', poster: 'assets/images/films/1.png', title: '杏杏', description: '实验短片-最佳毕业设计奖' },
-            { id: 2, type: 'bilibili', embedSrc: 'https://www.bilibili.com/video/BV1fhu4zEEZh?vd_source=e4d77113e8a14820331cd07dfbaf0665', poster: 'assets/images/films/2.jpg', title: '牙牙的奇妙冒险', description: '羊毛毡定格动画-全国大学生广告大赛二等奖' },
-            { id: 3, type: 'bilibili', embedSrc: 'https://www.bilibili.com/video/BV1Lrgcz6EsX?vd_source=e4d77113e8a14820331cd07dfbaf0665', poster: 'assets/images/films/3.jpg', title: '混剪', description: '作品' },
+            { id: 2, type: 'bilibili', embedSrc: 'https://www.bilibili.com/video/BV1cUg3z1EHj/?share_source=copy_web&vd_source=e4d77113e8a14820331cd07dfbaf0665', poster: 'assets/images/films/2.jpg', title: '牙牙的奇妙冒险', description: '羊毛毡定格动画-全国大学生广告大赛二等奖' },
+            { id: 3, type: 'bilibili', embedSrc: 'https://www.bilibili.com/video/BV1w1g3zmEBP/?share_source=copy_web&vd_source=e4d77113e8a14820331cd07dfbaf0665', poster: 'assets/images/films/3.jpg', title: '混剪', description: '作品' },
         ],
         vfx: [
             // VFX 仍然使用本地视频，如果需要B站嵌入，请参照films部分修改
