@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>韩金秀 个人摄影作品集</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="wes-header">
+            <h1 class="title">韩金秀 个人作品集</h1>
+            <p class="subtitle">摄影 · 短片 · 特效作品</p>
+            <div class="elegant-decoration"></div>
+        </header>
+
+        <div class="tabs-container">
+            <div class="tabs">
+                <button class="tab active" data-tab="photography">摄影作品</button>
+                <button class="tab" data-tab="films">短片作品</button>
+                <button class="tab" data-tab="vfx">特效制作</button>
+            </div>
+            <div class="tab-content active" id="photography">
+                <div class="gallery-grid">
+                    </div>
+            </div>
+            <div class="tab-content" id="films">
+                <div class="video-gallery">
+                    </div>
+            </div>
+            <div class="tab-content" id="vfx">
+                <div class="mixed-gallery">
+                    </div>
+            </div>
+        </div>
+
+        <div class="modal" id="image-modal">
+            <span class="close">&times;</span>
+            <div class="modal-content" id="modal-media-container">
+                </div>
+            <div class="caption" id="caption"></div>
+        </div>
+    </div>
+
+    <footer class="wes-footer">
+        <div class="footer-content">
+            <p>© 2025 韩金秀 个人作品集 | 版权所有</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-vimeo-v"></i></a>
+                <a href="#"><i class="fab fa-behance"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,348 @@
+/* 基础设置 */
+:root {
+    /* 全新配色方案 */
+    --main-bg: #FDFDFD; /* 主背景色，非常浅的米白 */
+    --panel-bg: #FFFFFF; /* 面板背景色，纯白 */
+    --text-primary: #333333; /* 主要文本色，深灰 */
+    --text-secondary: #666666; /* 次要文本色，中灰 */
+    --accent-main: #A87F68; /* 主强调色，一种柔和的砖红色/棕色 */
+    --accent-light: #D0B0A0; /* 强调色的浅色版本 */
+    --border-strong: #555555; /* 强边框色 */
+    --border-light: #CCCCCC; /* 浅边框色 */
+    --shadow-light: rgba(0,0,0,0.05); /* 浅阴影 */
+    --shadow-medium: rgba(0,0,0,0.1); /* 中等阴影 */
+    --play-icon-bg: rgba(51, 51, 51, 0.7); /* 播放按钮背景色，从 --text-primary 派生 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    background-color: var(--main-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 标题区样式 */
+.wes-header {
+    text-align: center;
+    margin-bottom: 60px; /* 增加更多空间 */
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.title {
+    font-family: 'Georgia', serif; /* 更优雅的字体 */
+    font-size: 3.5rem; /* 字体更大 */
+    color: var(--text-primary);
+    margin-bottom: 10px;
+    font-weight: 700;
+    letter-spacing: 1px; /* 减少字母间距 */
+}
+
+.subtitle {
+    font-size: 1.3rem; /* 字体更大 */
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    letter-spacing: 0.5px; /* 减少字母间距 */
+}
+
+.elegant-decoration { /* 新的装饰样式 */
+    height: 2px;
+    background-color: var(--accent-main); /* 强调色作为装饰 */
+    margin: 0 auto;
+    width: 30%; /* 宽度更窄，更精致 */
+}
+
+/* 选项卡样式 */
+.tabs-container {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--border-light); /* 更细的边框 */
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px var(--shadow-light); /* 更柔和的阴影 */
+    margin-bottom: 60px; /* 增加更多空间 */
+}
+
+.tabs {
+    display: flex;
+    background-color: var(--main-bg); /* 更浅的背景 */
+    border-bottom: 1px solid var(--border-light); /* 更细的底部边框 */
+}
+
+.tab {
+    padding: 18px 25px; /* 增加内边距 */
+    background: none;
+    border: none;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-size: 1.1rem;
+    font-weight: normal; /* 字体更轻 */
+    color: var(--text-secondary); /* 默认字体颜色 */
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+}
+
+.tab:not(:last-child) {
+    border-right: 1px solid var(--border-light); /* 更细的边框 */
+}
+
+.tab.active {
+    background-color: var(--accent-main);
+    color: white;
+    font-weight: bold; /* 选中时加粗 */
+}
+
+.tab:hover:not(.active) {
+    background-color: var(--accent-light);
+    color: var(--text-primary);
+}
+
+.tab-content {
+    display: none;
+    padding: 30px 20px; /* 增加内边距 */
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 画廊样式 */
+.gallery-grid, .video-gallery, .mixed-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px; /* 增加间距 */
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border-light); /* 更细的边框 */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1 / 1;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px); /* 轻微上浮效果 */
+    box-shadow: 0 8px 20px var(--shadow-medium); /* 明显的阴影效果 */
+}
+
+/* 确保 img 和 video 填充容器 */
+.gallery-item img,
+.gallery-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 画廊项叠加层 */
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6); /* 半透明黑色背景 */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0; /* 默认隐藏 */
+    transition: opacity 0.3s ease;
+    text-align: center;
+    padding: 15px;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1; /* 悬停时显示 */
+}
+
+.overlay h3 {
+    margin-bottom: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.overlay p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.video-item {
+    position: relative;
+}
+
+.video-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: var(--play-icon-bg); /* 新的播放按钮背景色 */
+    width: 60px; /* 略大 */
+    height: 60px; /* 略大 */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px; /* 图标更大 */
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.video-play-icon:hover {
+    background-color: rgba(0,0,0,0.8); /* 悬停时颜色更深 */
+}
+
+
+/* 模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95); /* 更深的背景 */
+    overflow: auto;
+    animation: fadeIn 0.3s forwards; /* 添加淡入动画 */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content { /* 现在是媒体内容的容器 */
+    display: flex; /* 使用 flexbox 居中内容 */
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    width: 90%; /* 模态框内容的宽度 */
+    max-width: 900px; /* 设置最大宽度 */
+    height: 85vh; /* 模态框内容的高度 */
+    background-color: #000; /* 背景黑色，更好地衬托媒体 */
+    border: 3px solid var(--accent-main); /* 强调色边框 */
+    box-shadow: 0 0 25px rgba(168, 127, 104, 0.4); /* 强调色阴影 */
+    position: relative; /* 确保子元素定位正确 */
+}
+
+/* 模态框内部媒体（图片和iframe）的样式 */
+.modal-media {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 确保图片/视频在容器内完整显示 */
+    display: block; /* 移除额外的空白 */
+    /* 对于Bilibili iframe，可能需要额外设置使其充满modal-content */
+    width: 100%;
+    height: 100%;
+}
+
+
+.close {
+    position: absolute;
+    top: 25px; /* 调整位置 */
+    right: 35px; /* 调整位置 */
+    color: var(--accent-light); /* 强调色的浅色版本 */
+    font-size: 40px; /* 更大 */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* 添加阴影 */
+    z-index: 1001; /* 确保关闭按钮在最上层 */
+}
+
+.close:hover {
+    color: var(--accent-main); /* 强调色 */
+}
+
+.caption {
+    color: white;
+    text-align: center;
+    padding: 15px 0; /* 增加内边距 */
+    font-size: 1.2rem;
+    margin-top: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7); /* 文本阴影 */
+}
+
+/* 页脚样式 */
+.wes-footer {
+    background-color: var(--text-primary); /* 深色背景 */
+    color: var(--main-bg); /* 浅色文本 */
+    padding: 30px 0; /* 增加内边距 */
+    text-align: center;
+    border-top: 1px solid var(--accent-main); /* 强调色顶部边框 */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.social-links {
+    margin-top: 20px; /* 增加间距 */
+}
+
+.social-links a {
+    color: var(--main-bg); /* 浅色图标 */
+    margin: 0 12px; /* 增加间距 */
+    font-size: 1.6rem; /* 略大 */
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--accent-light); /* 强调色悬停效果 */
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .tabs {
+        flex-direction: column;
+    }
+    
+    .tab:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid var(--border-light); /* 更细的边框 */
+    }
+    
+    .gallery-grid, .video-gallery, .mixed-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        margin: 20px auto;
+        max-height: 90vh;
+    }
+
+    .close {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
